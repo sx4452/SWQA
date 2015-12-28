@@ -43,4 +43,4 @@ def capture(url, save_fn="capture.png"):
 
 if __name__ == "__main__":
 
-  capture("http://www.jb51.net")
+  capture("http://ise.nju.edu.cn/njusns/#login.html?-1&N&-1&Z&navMain&undefined&navMainCourseFeed&")

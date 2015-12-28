@@ -5,7 +5,7 @@ import urllib
 import os
 
 # 爬取页面地址
-url = 'http://pic.sogou.com/pics?query=%CA%D6%BB%FA&w=05009900&p=40030500&_asf=pic.sogou.com&_ast=1422627003&sc=index&sut=1376&sst0=1422627002578'
+url = 'http://pic.sogou.com/pics?query=RGBD&w=05009900&p=40030500&_asf=pic.sogou.com&_ast=1451309589&sc=index&sut=2241&sst0=1451309589162'
 
 # 目标元素的xpath
 xpath = '//div[@id="imgid"]/ul/li/a/img'

@@ -1,8 +1,9 @@
-#-*-coding:gbk-*-
+#-*-coding:utf-8-*-
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
 from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+import os
 
 driver = webdriver.Firefox()
 
@@ -20,45 +21,27 @@ driver.find_element_by_css_selector("a.down").click()
 base_url = 'http://www.zhihu.com'
 driver.get(base_url)
 driver.find_element_by_id("q").clear()
-driver.find_element_by_id("q").send_keys('ÈçºÎ¿´´ýÖªºõËÑË÷')
+driver.find_element_by_id("q").send_keys('ï¿½ï¿½Î¿ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½')
 driver.find_element_by_css_selector("button.zu-top-search-button").click()
 '''
 
 '''
 base_url = 'http://mcg.nju.edu.cn'
 driver.get(base_url)
-driver.find_element_by_link_text(u"ÂÛÖø").click()
+driver.find_element_by_link_text(u"ï¿½ï¿½ï¿½ï¿½").click()
 '''
 
 
-#driver.quit()
+base_url = 'http://www.twitch.tv/directory/game/World%20of%20Warcraft'
+driver.get(base_url)
+xpath = '//div[@class="thumb"]/a';
+f = open('C://Users/ben/Desktop/Output_test/testOut.txt', 'wb');
+for element in driver.find_elements_by_xpath(xpath):
+    img_url = element.get_attribute('href');
+    f.write(img_url + '\r\n');
 
-'''
-# Create a new instance of the Firefox driver
-driver = webdriver.Firefox()
+f.close()
 
-# go to the google home page
-driver.get("http://www.baidu.com")
 
-# the page is ajaxy so the title is originally this:
-print driver.title
 
-# find the element that's name attribute is q (the google search box)
-inputElement = driver.find_element_by_name("q")
 
-# type in the search
-inputElement.send_keys("cheese!")
-
-# submit the form (although google automatically searches now without submitting)
-inputElement.submit()
-
-try:
-    # we have to wait for the page to refresh, the last thing that seems to be updated is the title
-    WebDriverWait(driver, 10).until(EC.title_contains("cheese!"))
-
-    # You should see "cheese! - Google Search"
-    print driver.title
-
-finally:
-    driver.quit()
-'''
