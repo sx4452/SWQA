@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
 from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
-import os
+import time
 
 driver = webdriver.Firefox()
 
@@ -33,7 +33,11 @@ driver.find_element_by_link_text(u"����").click()
 
 
 base_url = 'http://www.twitch.tv/directory/game/World%20of%20Warcraft'
+start = time.clock()
 driver.get(base_url)
+end = time.clock()
+print 'web open time is: '
+print end - start;
 xpath = '//div[@class="thumb"]/a';
 f = open('C://Users/ben/Desktop/Output_test/testOut.txt', 'wb');
 for element in driver.find_elements_by_xpath(xpath):
@@ -41,6 +45,7 @@ for element in driver.find_elements_by_xpath(xpath):
     f.write(img_url + '\r\n');
 
 f.close()
+print 'vedio data in C://Users/ben/Desktop/Output_test/testOut.txt';
 
 
 

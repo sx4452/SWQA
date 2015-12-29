@@ -10,7 +10,11 @@ import time
 def capture(url, save_fn="capture.png"):
   browser = webdriver.Firefox() # Get local session of firefox
   browser.set_window_size(1200, 900)
+  start = time.clock()
   browser.get(url) # Load page
+  end = time.clock()
+  print 'web open time is:'
+  print end - start;
   browser.execute_script("""
     (function () {
       var y = 0;
@@ -43,4 +47,6 @@ def capture(url, save_fn="capture.png"):
 
 if __name__ == "__main__":
 
-  capture("http://ise.nju.edu.cn/njusns/#login.html?-1&N&-1&Z&navMain&undefined&navMainCourseFeed&")
+  capture("https://www.taobao.com/")
+
+  print 'screen data in local file'

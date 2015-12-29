@@ -20,8 +20,12 @@ driver.maximize_window()
 img_url_dic = {}
 
 # 浏览器打开爬取页面
-driver.get(url)
 
+start = time.clock();
+driver.get(url)
+end = time.clock();
+print 'web open time is:'
+print end - start;
 # 模拟滚动窗口以浏览下载更多图片
 pos = 0
 m = 0 # 图片编号
@@ -47,3 +51,5 @@ for i in range(10):
 			f.write(data)
 			f.close()
 driver.close()
+
+print 'image data in C://Users/ben/Desktop/Output/'
